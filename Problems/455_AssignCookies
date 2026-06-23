@@ -1,0 +1,26 @@
+
+class Solution:
+    def findContentChildren(self, g: List[int], s: List[int]) -> int:
+        g.sort()
+        s.sort()
+
+        i = j = 0
+
+        while i < len(g) and j < len(s):
+            if s[j] >= g[i]:
+                i += 1      
+            j += 1          
+
+        return i
+    
+    """
+# Sort both arrays so that we can assign cookies efficiently.
+# i points to the current child (smallest greed factor).
+# j points to the current cookie (smallest available size).
+# If the current cookie can satisfy the current child (s[j] >= g[i]),
+# assign the cookie and move to the next child.
+# In either case, move to the next cookie.
+# At the end, i represents the number of content children.
+# Time Complexity: O(n log n + m log m)
+# Space Complexity: O(1) (excluding sorting space)
+"""

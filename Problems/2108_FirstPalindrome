@@ -1,0 +1,7 @@
+class Solution:
+    def firstPalindrome(self, words: List[str]) -> str:
+        for i in words:
+            s=i
+            if s==s[::-1]:
+                return i
+        return ""        
